@@ -1,0 +1,420 @@
+@charset "UTF-8";
+/*Rotation des fleurs*/
+.modal__content::after, .modal__content--story::after, .modal__content--place::after, .oscars-nomination::after, .site-footer ul::after, .oscars-nomination::before, .story__article::after {
+  animation: rotate 5s infinite linear;
+}
+
+#studio h2::before, #studio h2::after {
+  animation: rotate 5s infinite linear;
+}
+
+.story h2::after {
+  animation: rotate 5s infinite linear;
+  width: 155px;
+  height: 155px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*Oscars nomination*/
+.oscars-nomination {
+  display: flex;
+  padding: 100px 0;
+  position: relative;
+}
+
+.nomination {
+  width: 965px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15%;
+}
+
+.oscars-nomination h3 {
+  background-image: url(images/orange_nomination_bg.png);
+  text-align: left;
+  font-size: 2.4rem;
+  padding: 1.8em 2em;
+}
+.oscars-nomination::before {
+  content: url(images/Sunflower.png);
+  position: absolute;
+  left: 13em;
+  top: 0.5em;
+}
+.oscars-nomination::after {
+  content: url(images/orchid.png);
+  position: absolute;
+  right: -5em;
+  top: -3em;
+}
+
+.site-footer::before, .site-footer::after {
+  content: "";
+}
+
+@media screen and (max-width: 699px) {
+  .oscars-nomination {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .nomination {
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    display: block;
+    width: auto;
+  }
+  .oscars-nomination h3 {
+    background-image: url(images/orange_nomination_bg.png);
+    text-align: left;
+    font-size: 1.2rem;
+    padding: 1.8em 2em;
+  }
+  .oscars-nomination::before {
+    content: url(images/Sunflower.png);
+    position: absolute;
+    left: 1em;
+    top: -1em;
+  }
+}
+/*banner video*/
+#banner-image {
+  position: absolute;
+  animation: move-up 3s 200ms both, float 4s 2.8s infinite ease-in-out;
+}
+
+/* Pour faire apparaitre les éléments en montant et avec augmentatation de l'opacité */
+@keyframes move-up {
+  0% {
+    transform: translateY(600px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Pour faire flotter les éléments */
+@keyframes float {
+  0% {
+    transform: translate3d(6px, 6px, 0);
+  }
+  12% {
+    transform: translate3d(0px, 6px, 0);
+  }
+  24% {
+    transform: translate3d(6px, -4px, 0);
+  }
+  36% {
+    transform: translate3d(6px, 0px, 0);
+  }
+  48% {
+    transform: translate3d(-4px, -6px, 0);
+  }
+  60% {
+    transform: translate3d(0px, -4px, 0);
+  }
+  72% {
+    transform: translate3d(-8px, 6px, 0);
+  }
+  84% {
+    transform: translate3d(-4px, 0px, 0);
+  }
+  100% {
+    transform: translate3d(6px, 6px, 0);
+  }
+}
+#fallback-image {
+  background-size: cover;
+}
+
+/* Apparition des sections et des titres */
+.fadeIn {
+  animation: slidein 1s ease-in;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+/*Swiper Characters*/
+#characters {
+  width: 100%;
+}
+
+.story #characters div {
+  flex: none;
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.story #characters h3 {
+  text-align: left;
+  padding: 1.2em 2em;
+  background-position: left;
+  margin-left: 2em;
+}
+
+/* Parallaxe nuage */
+.big_cloud {
+  width: 316px;
+  height: 122px;
+  position: relative;
+  top: -400px;
+  left: 930px;
+  transform: scaleX(-1) scaleY(-1);
+  filter: blur(15px);
+  z-index: 1;
+}
+
+.little_cloud {
+  width: 142px;
+  height: 55px;
+  top: -350px;
+  left: 740px;
+  position: relative;
+  filter: blur(15px);
+}
+
+.story #place {
+  background-image: url(images/Studio_Koukaki-image_place.png);
+  z-index: -1;
+}
+.story #place h3 {
+  margin-top: 100px;
+  margin-left: 50px;
+}
+.story #place div p {
+  padding-left: 5em;
+  margin-left: 50px;
+}
+
+/* Menu Burger */
+.main-navigation ul {
+  display: flex !important;
+}
+
+#site-navigation {
+  position: relative;
+}
+
+.modal__burger {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+  width: 40px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 5em;
+  cursor: pointer;
+}
+.modal__burger .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  width: 100%;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+.modal__burger.close .line:nth-child(2) {
+  opacity: 0;
+}
+.modal__burger.close .line:first-child {
+  transform: rotate(45deg) translate3d(8px, 6px, 0);
+}
+.modal__burger.close span.line:last-child {
+  transform: rotate(-45deg) translate3d(8px, -6px, 0);
+}
+
+.modal {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.4rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.modal h2, .modal li > a {
+  font-size: 3.1rem;
+}
+.modal .modal__content {
+  position: relative;
+  width: 100%;
+  height: 91vh;
+  background: #fff5e9;
+  font-size: 3em;
+  display: none;
+}
+
+.modal__content--logo {
+  margin: 40px;
+  width: 154px;
+  filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+  animation: float 10s 100ms infinite ease-in-out;
+}
+
+.modal__content ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  gap: 1em;
+}
+.modal__content li > a:hover {
+  filter: drop-shadow(0px 0px 5px #ff5c00);
+}
+
+.modal__content--footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+}
+
+.modal__content--story::before {
+  content: url("images/cat_blue.png");
+  position: absolute;
+  right: 20em;
+  bottom: -3em;
+  animation: float 7s 100ms infinite ease-in-out;
+}
+
+.modal__content--place::before {
+  content: url("images/cat_grey.png");
+  position: absolute;
+  left: 20em;
+  top: -4em;
+  animation: float 6s 200ms infinite ease-in-out;
+}
+
+.modal__content--footer::before {
+  content: url("images/cat.png");
+  position: absolute;
+  right: 30em;
+  bottom: 0;
+  animation: float 5s 300ms infinite ease-in-out;
+}
+
+.modal__content::after {
+  content: url("images/orchid.png");
+  position: absolute;
+  left: -4em;
+  top: 3em;
+  transform: scale(0.8);
+}
+
+.modal__content--story::after {
+  content: url("images/Sunflower.png");
+  position: absolute;
+  left: 24em;
+  bottom: 0em;
+}
+
+.modal__content--characters::after {
+  content: url("images/random_flower.png");
+  position: absolute;
+  left: 54em;
+  top: -5em;
+  transform: scale(0.3);
+  animation: rotate-characters 5s linear infinite;
+}
+
+@keyframes rotate-characters {
+  from {
+    transform: rotate(0deg) scale(0.3);
+  }
+  to {
+    transform: rotate(360deg) scale(0.3);
+  }
+}
+.modal__content--place::after {
+  content: url("images/Flower.png");
+  position: absolute;
+  right: 28em;
+  top: -2em;
+  transform: scale(0.5);
+}
+
+.modal__content--footer::after {
+  content: url("images/hibiscus.png");
+  position: absolute;
+  left: 33em;
+  top: -3em;
+  margin-left: 100%;
+  transform: scale(2.2);
+  animation: rotate-footer 5s linear infinite;
+}
+
+@keyframes rotate-footer {
+  from {
+    transform: rotate(0deg) scale(2.2);
+  }
+  to {
+    transform: rotate(360deg) scale(2.2);
+  }
+}
+/* media queries*/
+@media all and (max-width: 699px) {
+  .main-navigation {
+    height: 80px;
+  }
+  .main-navigation ul {
+    display: flex !important;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .modal__content--footer::after {
+    content: url("images/hibiscus.png");
+    position: absolute;
+    left: 4em;
+    top: 1em;
+    margin-left: 100%;
+    transform: scale(2.2);
+    animation: rotate-footer 5s linear infinite;
+  }
+  .modal__content--story::before {
+    content: url("images/cat_blue.png");
+    position: absolute;
+    right: 15em;
+    bottom: -15em;
+    animation: float 7s 100ms infinite ease-in-out;
+  }
+  .modal__content--story::after {
+    content: url("images/Sunflower.png");
+    position: absolute;
+    left: 13em;
+    bottom: 1em;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
